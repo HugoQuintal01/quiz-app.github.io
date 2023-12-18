@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// Links
+// https://color.adobe.com/pt/explore
+
+
+$darkGray: #2C3532;
+$darkGreen: #0F6466;
+$lightBrown: #D8B08C;
+$beige: #FFCB9A;
+$lightGreen: #D2E8E3;
+$transparent: #00000000;
+
+// Reset
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: 'Roboto', sans-serif;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+// End Reset
+
+.app-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $lightGreen;
+
+    .quiz-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+        position: relative;
+        width: 40%;
+        padding: 100px 50px;
+        background-color: $beige;
+        border-radius: 35px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+        .question-container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+
+            h2{
+                color: $darkGray;
+                font-size: 32px;
+                font-weight: 600;
+                text-align: center;
+            }
+        }
+
+        .options-container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+
+            div{
+                background-color: $darkGray;
+                width: 60%;
+                border-radius: 15px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                margin: 5px 0;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+                cursor: pointer;
+                transition-duration: .3s;
+                position: relative;
+
+                &:hover{
+                    background-color: $darkGreen;
+                }
+
+                a{
+                    color: $lightGreen;
+                    font-weight: 500;
+                    width: 100%;
+                    height: 100%;
+                    text-align: center;
+                    padding: 20px 0;
+                }
+
+                &.selected{
+                    background-color: $darkGreen;
+                }
+            }
+        }
+
+        .question-number{
+            margin-top: 20px;
+
+            span{
+                font-size: 14px;
+                color: $darkGray;
+                font-weight: 500;
+            }
+        }
+
+        .navigation-buttons{
+            position: absolute;
+            bottom: 40px;
+
+            button{
+                padding: 10px 20px;
+                background-color: $transparent;
+                border: 1px solid $darkGray;
+                border-radius: 5px;
+                min-width: 100px;
+                margin: 0 10px;
+                cursor: pointer;
+                transition-duration: .3s;
+                font-weight: 500;
+                font-family: "Roboto", sans-serif;
+
+                &:hover{
+                    background-color: $darkGray;
+                    color: $lightGreen;
+                    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+                }
+            }
+        }
+
+        .result-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            flex-wrap: wrap;
+
+            h2{
+                width: 100%;
+                font-size: 32px;
+                font-weight: 600;
+                text-align: center;
+                color: $darkGray;
+            }
+
+            p{
+                margin-top: 10px;
+                font-weight: 500;
+                color: $darkGreen;
+            }
+
+            .correct-answers{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                flex-wrap: wrap;
+                margin-top: 40px;
+
+                h3{
+                    width: 100%;
+                    font-size: 22px;
+                    font-weight: 600;
+                    text-align: center;
+                    color: $darkGray;
+                }
+
+                ul{
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+                    flex-wrap: wrap;
+
+                    li{
+                        text-align: center;
+                        width: 100%;
+                        font-size: 16px;
+                        font-weight: 600;
+                        text-align: center;
+                        color: $darkGreen;
+                        margin: 10px 0;
+                    }
+                }
+            }
+
+            button{
+                padding: 10px 20px;
+                background-color: $transparent;
+                border: 1px solid $darkGray;
+                border-radius: 5px;
+                min-width: 100px;
+                margin: 0 10px;
+                cursor: pointer;
+                transition-duration: .3s;
+                font-weight: 500;
+                font-family: "Roboto", sans-serif;
+                margin-top: 30px;
+
+                &:hover{
+                    background-color: $darkGray;
+                    color: $lightGreen;
+                    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+                }
+            }
+        }
+    }
+}
